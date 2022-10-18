@@ -23,7 +23,7 @@
             crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Russo+One&display=swap" 
             rel="stylesheet">
-    <!-- Applied Fonts -->
+    <!-- Applied Google Fonts -->
         <!-- font-family: 'Raleway', sans-serif; -->
         <!-- font-family: 'Russo One', sans-serif; -->
     <style>
@@ -44,19 +44,22 @@
             width: 1.5rem;
         }
 
+        /* ========== Container Settings ========== */
         .container{
             width: 100%;
             height: 100vh;
-            background-color: lightgoldenrodyellow;
+            background-color: navajowhite;
             display: grid;
             place-items: center;
         }
 
-        /* ========== Page Settings ========== */
         .container .card-wrapper{
-            width: 70rem;
-            height: 55rem;
-            background-color: #ccc;
+            width: 90rem;
+            height: 75rem;
+            /* background-color: antiquewhite; */
+            display: grid;
+            place-items: center;
+            overflow: hidden;
             border-radius: 2.5rem;
         }
 
@@ -69,23 +72,35 @@
             position: relative;
         }
 
+        /* ========== Top-Page Settings ========== */
         .container .card-wrapper .card .card-top{
             width: 100%;
             height: 50%;
-            background: #5F7180;
+            background-color: #5F7180;
             padding: 3rem;
             border-radius: 2.5rem 2.5rem 0 0;
             margin: 0px;
+            transition: background-color 1.8s;
         }
 
-        .container.change2 .card-top{
-            background-color: orangered;
+        .container.change .card-wrapper .card .card-top{
+            background-color: #4E3B32;
         }
 
-        .container .card-wrapper .card .card-top .logo{
+        .container .card-wrapper .card .card-top .company-link{
+            text-decoration: none;
+        }
+
+        .container .card-wrapper .card .card-top .company-link .logo{
             width: 10rem;
-            margin-bottom: 5rem;
             fill: white;
+        }
+
+        .container .card-wrapper .card .card-top .company-link p{
+            font-family: 'Russo One', sans-serif;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
         }
 
         .container .card-wrapper .card .card-top .card-top-text{
@@ -95,9 +110,16 @@
 
         .container .card-wrapper .card .card-top .card-top-text h1{
             font-family: 'Russo One', sans-serif;
-            font-weight: 500;
+            font-weight: normal;
+            letter-spacing: 0.1rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
         }
 
+        .container .card-wrapper .card .card-top .card-top-text p{
+            line-height: 1.4rem;
+        }
+        
         .container .card-wrapper .card .card-top .card-top-text .shoe-1{
             width: 35rem;
             position: absolute;
@@ -105,13 +127,35 @@
             right: -10rem;
             transform: scalex(-1);
             rotate: -55deg;
+            transition: all 1.8s;
         }
 
+        .container.change .card-wrapper .card .card-top .card-top-text .shoe-1{
+            transform: translateX(35rem)
+                rotate(55deg)
+                scalex(-1);
+        }
+
+        .container .card-wrapper .card .card-top .card-top-text .shoe-2{
+            width: 35rem;
+            position: absolute;
+            top: 0;
+            right: -50rem;
+            transform: scalex(-1);
+            transition: all 1.8s;
+        }
+
+        .container.change .card-wrapper .card .card-top .card-top-text .shoe-2{
+            transform: translateX(-40rem)
+                rotate(-55deg)
+                scalex(-1);
+        }
+
+        /* ========== Bottom-Page Settings ========== */  
         .container .card-wrapper .card .card-bottom{
             width: 100%;
             height: 50%;
             padding: 2rem 3rem;
-            position: relative;
         }
         
         .container .card-wrapper .card .card-bottom h1{
@@ -125,8 +169,8 @@
 
         .container .card-wrapper .card .card-bottom .badge{
             position: absolute;
-            top: 2.5rem;
-            left: 40rem;
+            top: 30rem;
+            right: 27rem;
             width: 3.5rem;
             height: 1.6rem;
             background-color: teal;
@@ -148,31 +192,35 @@
             margin-bottom: 0.6rem;
         }
 
-        .stars{
+        .container .card-wrapper .card .card-bottom .stars{
             margin-bottom: 3rem;
         }
 
-        .stars svg:last-child{
+        .container .card-wrapper .card .card-bottom .stars svg:last-child{
             opacity: 0.4;
         }
 
-        .size-form h4{
+        .container .card-wrapper .card .card-bottom .size-form{
+            margin-bottom: 3rem;
+        }
+
+        .container .card-wrapper .card .card-bottom .size-form h4{
             font-size: 1.2rem;
             text-transform: uppercase;
             letter-spacing: 0.1rem;
             margin-bottom: 1.3rem;
         }
 
-        .sizes{
-            display: flex;
-        }
-
-        .sizes span{
+        .container .card-wrapper .card .card-bottom .size-form span{
             font-size: 1.3rem;
             margin-right: 2.5rem;
         }
+        
+        .container .card-wrapper .card .card-bottom .size-form .sizes{
+            display: flex;
+        }
 
-        .sizes span:nth-child(3){
+        .container .card-wrapper .card .card-bottom .size-form .sizes span:nth-child(3){
             width: 2rem;
             height: 2rem;
             background-color: teal;
@@ -182,14 +230,19 @@
             place-items: center;
         }
 
-        .color-form h4{
+        .container .card-wrapper .card .card-bottom .color-form .colors{
+            display: flex;
+        }
+
+        .container .card-wrapper .card .card-bottom .color-form h4{
             font-size: 1.2rem;
             text-transform: uppercase;
             letter-spacing: 0.1rem;
             margin-bottom: 1rem;
         }
 
-        .color-1, .color-2{
+        .container .card-wrapper .card .card-bottom .color-1, 
+        .container .card-wrapper .card .card-bottom .color-2{
             width: 2rem;
             height: 2rem;
             background: red;
@@ -197,19 +250,37 @@
             cursor: pointer;
         }
 
+        .container .card-wrapper .card .card-bottom .color-1{
+            background: #5F7180;
+            margin-right: 1.5rem;
+            box-shadow: 0 1rem 2rem rgba(23, 32, 40, 0.5);
+        }
+
+        .container .card-wrapper .card .card-bottom .color-2{
+            background: #4E3B32;
+            margin-right: 1.5rem;
+            box-shadow: 0 1rem 2rem rgba(27, 19, 15, 0.5);
+        }
+
         .container .card-wrapper .card .card-bottom .price{
             width: 16rem;
             height: 4rem;
-            background-color: #1c477a;
             color: #fff;
             border-radius: 0.5rem;
             position: absolute;
-            right: -1rem;
+            right: -1.5rem;
             bottom: 3rem;
-            box-shadow: 0 1rem 2rem rgba(28, 71, 122, 0.5);
+            box-shadow: 0 1rem 2rem rgba(23, 32, 40, 0.5);
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: #5F7180;
+            transition: all 1.8s;
+        }
+
+        .container.change .card-wrapper .card .card-bottom .price{
+            background-color: #4E3B32;
+            box-shadow: 0 1rem 2rem rgba(27, 19, 15, 0.5);
         }
 
         .container .card-wrapper .card .card-bottom .price span{
@@ -224,11 +295,7 @@
 
         .container .card-wrapper .card .card-bottom .price span:last-child{
             font-weight: bold;
-        }
-
-        .container .card-wrapper .card .card-bottom .container.change2{
-            background-color: orangered;
-        }
+        }       
     </style>
 </head>
 <body>
@@ -236,7 +303,9 @@
         <div class="card-wrapper">
             <div class="card">
                 <div class="card-top">
-                    <svg version="1.1" 
+                    <a href = "https://www.soleretriever.com"
+                        class = "company-link">
+                        <svg version="1.1" 
                         class = "logo"
                         id="Layer_1" 
                         xmlns="http://www.w3.org/2000/svg" 
@@ -287,10 +356,12 @@
                                 c0.4,0.5,9.8,10.8,21.1,10.8c11.4,0-3.1-33.2-3.4-34C267.3,22.6,289,55.3,273.4,59.2z M333.6,87.9c0,0-1.4-1.8-3.9-2.2V69
                                 c0,0,3.2-2.3,3.9-3.5V87.9z"/>
                         </g>
-                    </svg>
+                        </svg>
+                        <p>Solo Retrivier</p>
+                    </a>
                     <div class="card-top-text">
                         <h1>
-                            New Balance x Auralee XC-72
+                            New Balance x Auralee Collection
                         </h1>
                         <p>
                             AURALEE and New Balance make for a natural collaborative pairing. The Tokyo-based brand has quickly established itself as one of global fashion’s most highly regarded emerging labels, rooted in in founder Ryota Iwai’s vision - premium materials, sourced from all over the world, applied with the same level of consideration to every single item, from the simplest to the most intricate. The New Balance x AURALEE XC-72 offers a luxurious execution of the concept car inspired silhouette. The shoe’s upper is outfitted in premium hairy suede, nubuck, and smooth leather, with each material featuring a tonal variation. This subtle, sophisticated use of color adds sense of depth to the XC-72’s angular, retrofuture design.
@@ -298,8 +369,7 @@
                         <img src="./src/blue.webp"
                             class = "shoe-1">
                         <img src="./src/brown.webp"
-                            class = "shoe-2" 
-                            hidden>
+                            class = "shoe-2" >
                     </div>
                 </div>
                 <div class="card-bottom">
@@ -346,6 +416,8 @@
                             <span>9</span>
                             <span>10</span>
                             <span>11</span>
+                            <span>12</span>
+                            <span>13</span>
                         </div>
                     </div>
                     <div class="color-form">
@@ -368,12 +440,12 @@
         const color_1 = document.querySelector(".color-1");
         const color_2 = document.querySelector(".color-2");
 
-        color_1.addEventListener("click", () => {
-            container.classList.add("change1");
+        color_2.addEventListener("click", () => {
+            container.classList.add("change");
         });
 
-        color_2.addEventListener("click", () => {
-            container.classList.add("change2");
+        color_1.addEventListener("click", () => {
+            container.classList.remove("change");
         });
     </script>
 </body>
