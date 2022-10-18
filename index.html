@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" 
+        content="IE=edge">
+    <meta name="viewport" 
+        content="width=device-width, initial-scale=1.0">
+    <title>Shoe Retrivier Shoecards</title>
+    <meta name="Author" 
+        content="Harry Lee"/>    
+    <meta name="Description" 
+        content="This Website is just for practice, I am not an author of this idea, but it writes on my code style. Ask directly authors in https://www.udemy.com/course/50-web-projects-with-html-css-and-javascript/ if you have some questions. Thank you"/>
+    <!-- Remove Comment if you need Fontawesome -->
+    <!-- <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" 
+        referrerpolicy="no-referrer" /> -->
+        <link rel="preconnect" 
+            href="https://fonts.googleapis.com">
+        <link rel="preconnect" 
+            href="https://fonts.gstatic.com" 
+            crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Russo+One&display=swap" 
+            rel="stylesheet">
+    <!-- Applied Fonts -->
+        <!-- font-family: 'Raleway', sans-serif; -->
+        <!-- font-family: 'Russo One', sans-serif; -->
+    <style>
+        /* ========== Overall Settings ========== */
+        *, *::after, *::before{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            outline: none;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        html{
+            font-size: 62.5%;
+        }
+
+        svg{
+            width: 1.5rem;
+        }
+
+        .container{
+            width: 100%;
+            height: 100vh;
+            background-color: lightgoldenrodyellow;
+            display: grid;
+            place-items: center;
+        }
+
+        /* ========== Page Settings ========== */
+        .container .card-wrapper{
+            width: 70rem;
+            height: 55rem;
+            background-color: #ccc;
+            border-radius: 2.5rem;
+        }
+
+        .container .card-wrapper .card{
+            width: 70rem;
+            height: 55rem;
+            background-color: #eee;
+            border-radius: 2.5rem;
+            box-shadow: 0 2rem 6rem rgba(0, green, 0, 0.7);
+            position: relative;
+        }
+
+        .container .card-wrapper .card .card-top{
+            width: 100%;
+            height: 50%;
+            background: #5F7180;
+            padding: 3rem;
+            border-radius: 2.5rem 2.5rem 0 0;
+            margin: 0px;
+        }
+
+        .container.change2 .card-top{
+            background-color: orangered;
+        }
+
+        .container .card-wrapper .card .card-top .logo{
+            width: 10rem;
+            margin-bottom: 5rem;
+            fill: white;
+        }
+
+        .container .card-wrapper .card .card-top .card-top-text{
+            color: #fff;
+            padding-right: 15rem;
+        }
+
+        .container .card-wrapper .card .card-top .card-top-text h1{
+            font-family: 'Russo One', sans-serif;
+            font-weight: 500;
+        }
+
+        .container .card-wrapper .card .card-top .card-top-text .shoe-1{
+            width: 35rem;
+            position: absolute;
+            top: 0;
+            right: -10rem;
+            transform: scalex(-1);
+            rotate: -55deg;
+        }
+
+        .container .card-wrapper .card .card-bottom{
+            width: 100%;
+            height: 50%;
+            padding: 2rem 3rem;
+            position: relative;
+        }
+        
+        .container .card-wrapper .card .card-bottom h1{
+            font-family: 'Russo One', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            color: #333;
+            margin-bottom: 0.6rem;
+        }
+
+        .container .card-wrapper .card .card-bottom .badge{
+            position: absolute;
+            top: 2.5rem;
+            left: 40rem;
+            width: 3.5rem;
+            height: 1.6rem;
+            background-color: teal;
+            color: #fff;
+            display: grid;
+            place-items: center;
+            border-radius: 0.3rem;
+            font-weight: bold;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+        }
+
+        .container .card-wrapper .card .card-bottom h3{
+            font-size: 1rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+        }
+
+        .stars{
+            margin-bottom: 3rem;
+        }
+
+        .stars svg:last-child{
+            opacity: 0.4;
+        }
+
+        .size-form h4{
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            margin-bottom: 1.3rem;
+        }
+
+        .sizes{
+            display: flex;
+        }
+
+        .sizes span{
+            font-size: 1.3rem;
+            margin-right: 2.5rem;
+        }
+
+        .sizes span:nth-child(3){
+            width: 2rem;
+            height: 2rem;
+            background-color: teal;
+            color: white;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+        }
+
+        .color-form h4{
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .color-1, .color-2{
+            width: 2rem;
+            height: 2rem;
+            background: red;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .container .card-wrapper .card .card-bottom .price{
+            width: 16rem;
+            height: 4rem;
+            background-color: #1c477a;
+            color: #fff;
+            border-radius: 0.5rem;
+            position: absolute;
+            right: -1rem;
+            bottom: 3rem;
+            box-shadow: 0 1rem 2rem rgba(28, 71, 122, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container .card-wrapper .card .card-bottom .price span{
+            font-size: 2rem;
+        }
+
+        .container .card-wrapper .card .card-bottom .price span:first-child{
+            font-weight: 300;
+            text-transform: uppercase;
+            margin-right: 1rem;
+        }
+
+        .container .card-wrapper .card .card-bottom .price span:last-child{
+            font-weight: bold;
+        }
+
+        .container .card-wrapper .card .card-bottom .container.change2{
+            background-color: orangered;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card-wrapper">
+            <div class="card">
+                <div class="card-top">
+                    <svg version="1.1" 
+                        class = "logo"
+                        id="Layer_1" 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        xmlns:xlink="http://www.w3.org/1999/xlink" 
+                        x="0px" 
+                        y="0px"
+	                    viewBox="0 0 374.4 222" 
+                        style="enable-background:new 0 0 374.4 222;" 
+                        xml:space="preserve">
+                        <g>
+                            <path d="M265.8,209.2c-1.5-1.6-3.3-3-5.2-3.9c-6.2-3-10.3-7.7-12.2-14.1c-1.7-6-3.6-12-5.2-18c-1.2-4.5-2.4-9-3.3-13.6
+                                c-0.3-1.5-0.6-3-0.8-4.6c-0.4-2.2-0.6-4.4-0.6-6.5s0.1-4.2,0.4-6.3c0.1-0.7,0.2-1.4,0.4-2.1c0.3-1.4,0.7-2.7,1.1-4
+                                c0.5-1.3,1-2.6,1.7-3.9c0.5-0.9,1-1.8,1.5-2.6c1.4-2.2,3.1-4.4,5.2-6.4c1.1-1,2-2.1,3-3.3c0.7-0.9,1.4-1.7,2-2.6
+                                c0.4-0.5,0.7-1.1,1.1-1.7c1.8-3,3.2-6.2,4.3-9.7c0.3-1,0.6-2,0.8-3c-11.4-6.8-21.4-15.1-30.6-24.2c-9.3-9.1-17.9-18.9-26.5-28.7
+                                c-12.3,5.6-24.8,7.6-37.6,8c-3,0.1-5.9,0.1-8.9,0.1c-1.4,0-2.7,0-4,0c-2.7,0-5.4,0-8.1,0.1c-1.3,0-2.7,0.1-4,0.1
+                                c-2.7,0.1-5.3,0.3-8,0.5c-10.6,0.8-21.2,2.4-31.6,5.3c-2.6,0.7-5.2,1.5-7.8,2.4c-7.4,2.5-14.5,2.7-21.1,0.6
+                                c-1.5-0.5-2.9-1.1-4.3-1.7c-0.7-0.4-1.4-0.7-2.1-1.1c-2.8-1.6-5.5-3.7-8-6.2c-1.6-1.6-3.2-3.2-4.8-4.8s-3.1-3.2-4.7-4.8
+                                c-3.8-3.9-7.4-8.1-11.4-11.7c-1.5-1.3-3.1-2.6-4.8-3.6c-1-0.6-2.1-1.1-3.2-1.3c-1-0.2-2.2-0.4-3.4-0.3c0,0-0.1,0-0.1,0
+                                c-2,0.1-3.9,0.6-5.4,1.4c-0.8,0.4-1.3,1-1.7,1.7c-0.5,0.8-0.7,1.8-0.7,2.8c0,1.4,0.3,2.9,0.9,4.3c0.3,0.7,0.6,1.5,0.9,2.2
+                                c1,2.2,2.2,4.3,3.6,6.2c8.5,11.2,17.3,22.3,26,33.3c-1.5,2.8-3,5.6-4.5,8.3c-1,1.8-2,3.7-3,5.5c-1.5,2.8-2.9,5.5-4.2,8.4
+                                c-3.5,7.6-6.8,15.2-10,22.9s-6.6,15.3-10,22.9c-0.8,1.9-1.7,3.7-2.8,5.4c-0.5,0.9-1.2,1.8-1.8,2.6c-1,1.3-2.1,2.5-3.4,3.6
+                                c-0.5,0.5-1.1,0.9-1.7,1.3c-2.1,1.5-4.1,4.6-4.4,7.1c-1.2,12.1-2.2,24.3-2.5,36.5c0,1,0.1,2,0.2,2.9s0.5,1.8,0.9,2.7
+                                c0.5,1.1,1.2,2.1,2.1,3c0.4,0.5,0.9,0.9,1.4,1.3c1,0.8,2.3,1.4,3.7,1.9c4.3,1.4,8.4,1.2,12-0.5c1.1-0.5,2.1-1.2,3.1-2
+                                s1.9-1.7,2.7-2.8c-0.5-1.1-0.9-2.3-1.5-3.4c-0.8-1.4-1.6-2.8-2.6-4c-1.7-2.3-2.9-4.3-3.6-6.2c-1.5-4.2-0.5-8,3.2-12.8
+                                c2.7-3.5,6.2-6.5,9.9-8.9c0.8-0.5,1.5-1,2.3-1.5c2.3-1.5,4.5-3,6.8-4.5s4.5-3,6.7-4.6c2.2-1.6,4.4-3.2,6.5-4.9
+                                c4.2-3.4,8.2-7,11.9-11.1c0.7-0.8,1.9-1.3,2.9-2c0.2,0.8,0.5,1.4,0.6,1.9c0,0.1,0,0.3,0,0.4c-1.5,4.8-2.1,9.4-2,13.7
+                                c0.3,9.6,4.5,18.1,12.4,25.8c5.2,5,9.9,10.5,14.8,15.8c1.6,1.8,3.3,3.5,4.9,5.3c1.7,1.8,4,3.8,6.2,4c0.7,0.1,1.4,0.1,2.1,0.2
+                                c1.4,0.1,2.8,0.1,4.2,0.1c3.5,0,7-0.1,10.4-0.1c1.1-2.9,1.8-4.9,2-6.4c0.1-0.8,0-1.4-0.1-2c-0.2-0.6-0.5-1.1-1-1.6
+                                c-0.6-0.7-1.5-1.4-2.7-2.2c-1-0.7-2.2-1.4-3.3-2s-2.3-1.2-3.3-1.9c-10.9-7.2-18.6-23.3-15.9-33.9c0.9-3.5,2.2-6.9,3.8-10.1
+                                c1-2.1,2.2-4.2,3.5-6.2c1.9-3,4.2-5.9,6.6-8.6c0.5-0.6,1.1-1.2,1.6-1.7c1.1-1,2.3-1.8,3.5-2.4c0.3-0.1,0.6-0.3,0.9-0.4
+                                c0.6-0.2,1.2-0.5,1.9-0.6c0.6-0.1,1.3-0.3,2-0.3c0.3,0,0.7,0,1,0c1.4,0,2.9,0.2,4.5,0.5c2.1,0.5,4.2,1,6.3,1.4
+                                c6.4,1.3,12.8,2.4,19.1,3.5c0.5,0.1,1.1,0.2,1.7,0.3c1.4,0.2,2.8,0.2,4.1,0c0.3,0,0.6-0.1,0.9-0.2c1-0.3,2-0.8,3-1.5
+                                c0.5-0.4,1.1-0.8,1.7-1.2s1.3-0.9,2-1.3c-0.5,1.4-0.9,2.6-1.2,3.6c-0.1,0.4-0.3,0.8-0.4,1.2c-0.1,0.2-0.1,0.4-0.2,0.6
+                                c-0.2,0.6-0.4,1.2-0.7,1.8c0,0.1-0.1,0.2-0.1,0.3c-0.8,1.9-1.5,3.8-2.2,5.8c-2.1,5.8-3.9,11.6-5.4,17.6c-1,4-1.9,7.9-2.7,11.9
+                                c-0.4,2-0.8,4-1.1,6c-0.3,2-0.6,4-0.9,6.1c-0.9,6.6,0.1,12,2.9,16c0.4,0.6,0.8,1.1,1.3,1.6c0.5,0.5,1,1,1.5,1.5
+                                c1.3,1.1,2.8,2.1,4.5,2.9c0.7,0.3,1.4,0.6,2.1,0.8c2.6,0.8,5.6,1.3,8.9,1.3c1.4,0,2.9,0,4.3,0c1.5,0,2.9,0,4.5,0
+                                c1.7-3.2,2.1-5.8,1.6-8c-0.4-1.9-1.5-3.5-2.9-5c-0.7-0.7-1.4-1.5-2.2-2.2c-2.1-1.9-4.4-3.8-5.8-6.1c4.7-14.2,12.3-27,20.6-40.1
+                                c2.8-4.4,5.6-8.8,8.4-13.2c0.9,1.9,1.8,3.8,2.7,5.7c2.6,5.6,5.2,11.1,7.7,16.4c1.7,3.6,3.4,7.1,5,10.5s3.3,6.9,5,10.4
+                                c1.1,2.4,2.3,4.8,3.5,7.1c3.5,7.1,7.1,14.2,10.9,21.2c0.2,0.4,0.4,0.7,0.7,1.1s0.5,0.7,0.8,1.1c0.8,1.1,1.8,2.2,2.8,3
+                                c0.3,0.3,0.7,0.5,1,0.7s0.7,0.4,1.1,0.5c0.4,0.1,0.7,0.2,1,0.3c6.9,1,14.1,0.8,21.1,0.2c5.1-0.4,7.1-4.9,4.2-9.2
+                                C267.6,211.2,266.8,210.2,265.8,209.2z"/>
+                            <path d="M368.4,138.9c-1.9-1.8-3.9-3.3-5.9-4.9c-4.3-3.3-8.8-6.5-13-10c-8.7-7.2-13.1-16.4-12.8-27.8c0.2-6.4,0-12.8,0.1-19.2
+                                c0.1-7.6-0.6-15.2,2.2-22.8c2-5.5,0.2-8.9-4.9-12.1c-4.3-2.7-8.9-5.1-13.4-7.4c-5.9-3-10.8-7-13.7-13c-2.9-6.1-7.6-10.7-13.5-13.1
+                                c-8.2-3.4-16.8-6.5-25.5-8.2c-9.6-1.9-18.5,1.5-25.2,8.9c-11.5,12.8-22.7,25.8-34.4,39.1c15.9,18.3,32.2,36.5,53.8,49.2
+                                c5.7-8,10.8-15.3,16.1-22.7c16.3-0.7,32.8,1.9,48.8-5.3v15.3c-4.3-0.6-7.9-1.3-11.6-1.8c-4.2-0.5-8.8-1.1-11.4,3
+                                c-6.7,10.8-13,21.9-19.8,33.4c2.4,2.1,3.2,3.2,4.2,3.7c18.5,8.7,37,17.6,55.7,26c5.2,2.3,11.1,3.2,16.8,4.1
+                                c3.9,0.7,7.9-0.5,9.9-4.3C373.1,145.3,371.5,141.8,368.4,138.9z M273.4,59.2c-15.6,3.8-24.1-13.7-24.4-14.2
+                                c0.4,0.5,9.8,10.8,21.1,10.8c11.4,0-3.1-33.2-3.4-34C267.3,22.6,289,55.3,273.4,59.2z M333.6,87.9c0,0-1.4-1.8-3.9-2.2V69
+                                c0,0,3.2-2.3,3.9-3.5V87.9z"/>
+                        </g>
+                    </svg>
+                    <div class="card-top-text">
+                        <h1>
+                            New Balance x Auralee XC-72
+                        </h1>
+                        <p>
+                            AURALEE and New Balance make for a natural collaborative pairing. The Tokyo-based brand has quickly established itself as one of global fashion’s most highly regarded emerging labels, rooted in in founder Ryota Iwai’s vision - premium materials, sourced from all over the world, applied with the same level of consideration to every single item, from the simplest to the most intricate. The New Balance x AURALEE XC-72 offers a luxurious execution of the concept car inspired silhouette. The shoe’s upper is outfitted in premium hairy suede, nubuck, and smooth leather, with each material featuring a tonal variation. This subtle, sophisticated use of color adds sense of depth to the XC-72’s angular, retrofuture design.
+                        </p>
+                        <img src="./src/blue.webp"
+                            class = "shoe-1">
+                        <img src="./src/brown.webp"
+                            class = "shoe-2" 
+                            hidden>
+                    </div>
+                </div>
+                <div class="card-bottom">
+                    <h1>
+                        New Balance x Auralee XC-72
+                        <div class = "badge">
+                            New
+                        </div>
+                    </h1>
+                    <h3>
+                        Running Collection
+                    </h3>
+                    <div class="stars">
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
+                        </svg>
+                    </div>
+                    <div class = "size-form">
+                        <h4>Size</h4>
+                        <div class = "sizes">
+                            <span>7</span>
+                            <span>8</span>
+                            <span>9</span>
+                            <span>10</span>
+                            <span>11</span>
+                        </div>
+                    </div>
+                    <div class="color-form">
+                        <h4>Color:</h4>
+                        <div class="colors">
+                            <div class="color-1"></div>
+                            <div class="color-2"></div>
+                        </div>
+                    </div>
+                    <div class = "price">
+                        <span> USD </span>
+                        <span> N.A. </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const container = document.querySelector(".container");
+        const color_1 = document.querySelector(".color-1");
+        const color_2 = document.querySelector(".color-2");
+
+        color_1.addEventListener("click", () => {
+            container.classList.add("change1");
+        });
+
+        color_2.addEventListener("click", () => {
+            container.classList.add("change2");
+        });
+    </script>
+</body>
+</html>
